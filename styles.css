@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+
+:root {
+    --border-radius: 4px;
+
+    --black-color: #0D1321;
+    --primary-color:#1D2D44;
+    --secondary-color:#3E5C76;
+    --tertiary-color:#748CAB;
+    --white-color:#F0EBD8;
+
+    --font: "Lato", sans-serif;
+    --font-thin: 100;
+    --font-light: 300;
+    --font-regular: 400;
+    --font-bold: 700;
+    --font-black: 900;
+
+    --font-size-tiny: clamp(0.65rem, 0.3375rem + 1.25vw, 1rem);
+    --font-size-small: clamp(0.75rem, 0.4375rem + 1.25vw, 1.375rem);
+    --font-size-base: clamp(0.875rem, 0.5625rem + 1.25vw, 1.5rem);
+    --font-size-med: clamp(1rem, 0.6875rem + 1.25vw, 1.625rem);
+    --font-size-large: clamp(1.125rem, 0.8125rem + 1.25vw, 1.75rem);
+    --font-size-larger: clamp(1.25rem, 0.875rem + 1.5vw, 2rem);
+    --font-size-largest: clamp(1.5rem, 0.75rem + 3vw, 3rem);
+    --font-size-ginormous: clamp(1.875rem, 0.5625rem + 5.25vw, 4.5rem);
+}
+  
+@layer global, app, effects;
+
+@layer global {
+    * { 
+      box-sizing: border-box; 
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+        accent-color: var(--primary-color);
+        background-color: var(--white-color);
+        color: var(--black-color);
+        font-family: var(--font);
+        font-size: var(--font-size-base);
+        font-weight: var(--font-regular);
+        padding: var(--font-size-large);
+    }
+    input[type="submit"],
+    button,
+    .a-btn {
+        background-color: var(--secondary-color);
+        border: 1px solid var(--primary-color);
+        border-radius: var(--border-radius);
+        color: var(--white-color);
+        padding: .5em .75em;
+    }
+    
+    input[type="email"],
+    input[type="search"],
+    input[type="text"] {
+        background-color: var(--white-color);
+        border: 1px solid var(--black-color);
+        color: var(--black-color);
+        padding: .5em .75em;      
+    }
+    h1 {
+        font-size: var(--font-size-largest);
+        font-weight: var(--font-black);
+    }
+    h2 {
+        font-size: var(--font-size-larger);
+        font-weight: var(--font-black);
+    }
+    h3 {
+        font-size: var(--font-size-larger);
+        font-weight: var(--font-bold);
+    }
+    h4 {
+        font-size: var(--font-size-large);
+        font-weight: var(--font-bold);
+    }
+    h5 {
+        font-size: var(--font-size-med);
+        font-weight: var(--font-bold);
+    }
+    h6 {
+        font-size: var(--font-size-base);
+        font-weight: var(--font-bold);
+    }
+
+}
+
+@layer app {
+    body {
+        display: flex;
+        flex-flow: column;
+    }
+    .o-weather__select {
+        align-self: center;
+        background-color: var(--tertiary-color);
+        color: var(--white-color);
+        max-width: 800px;
+        width: 100%;
+        padding: var(--font-size-large);
+    }
+
+    .o-weather__results {
+        align-self: center;
+        background-color: var(--tertiary-color);
+        color: var(--white-color);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        max-width: 800px;
+        padding: var(--font-size-large);
+        width: 100%;
+    } 
+
+    .o-weather__results--day {
+        padding: var(--font-size-base);
+    }
+    .o-weather__results--wind,
+    .o-weather__results--temp,
+    .o-weather__results--outlook {
+        font-size: var(--font-size-tiny);
+        font-weight: var(--font-light);
+
+    }
+    .o-weather__results--day:first-of-type {
+        grid-column: 1 / 3;
+        font-size: var(--font-size-medium);
+    }
+    .o-weather__results--day:first-of-type date {
+        font-size: var(--font-size-large); 
+    }
+    .o-weather__results--day:first-of-type .o-weather__results--wind,
+    .o-weather__results--day:first-of-type .o-weather__results--temp,
+    .o-weather__results--day:first-of-type .o-weather__results--outlook {
+        font-size: var(--font-size-medium);
+        font-weight: var(--font-regular);
+    }
+}
+
+@layer effects {
+
+}
