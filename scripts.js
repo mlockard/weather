@@ -3,10 +3,6 @@
 // api call format https://geocode.maps.co/search?postalcode=26623&country=US&api_key=669eb52ab06df389337364gtzff1b95
 
 function defaultzip() {
-  
-
-  // your logic goes here
-  //const zipcode = (form['0']['value']);
   getDataIP();
 }
 
@@ -26,7 +22,7 @@ async function getDataIP() {
     try {
       const response2 = await fetch(url2);
       if (!response2.ok) {
-        throw new Error('Response status url2: ${response.status}');
+        throw new Error('Response status url2: ${response2.status}');
       }
       const json2 = await response2.json();
       const reloc = json2['properties'].relativeLocation.properties.city + ", " + json2['properties'].relativeLocation.properties.state;
@@ -36,7 +32,7 @@ async function getDataIP() {
       try {
         const response3 = await fetch(url3);
         if (!response3.ok) {
-          throw new Error('Response status url3: ${response.status}');
+          throw new Error('Response status url3: ${response3.status}');
         }
         const json3 = await response3.json();
         const days = json3['properties'].periods;
@@ -92,7 +88,7 @@ async function getData(zipcode) {
       try {
         const response2 = await fetch(url2);
         if (!response2.ok) {
-          throw new Error('Response status url2: ${response.status}');
+          throw new Error('Response status url2: ${response2.status}');
         }
         const json2 = await response2.json();
         const reloc = json2['properties'].relativeLocation.properties.city + ", " + json2['properties'].relativeLocation.properties.state;
@@ -102,7 +98,7 @@ async function getData(zipcode) {
         try {
           const response3 = await fetch(url3);
           if (!response3.ok) {
-            throw new Error('Response status url3: ${response.status}');
+            throw new Error('Response status url3: ${response3.status}');
           }
           const json3 = await response3.json();
           const days = json3['properties'].periods;
