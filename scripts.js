@@ -5,9 +5,10 @@
 function defaultzip() {
   getDataIP();
 }
-
+//https://api.my-ip.io/v2/ip.json
 async function getDataIP() {
-  const ipurl = "http://ip-api.com/json/";
+  //const ipurl = "https://ip-api.com/json/";
+  const ipurl = "https://api.my-ip.io/v2/ip.json";
   try {
     const response = await fetch(ipurl);
     if (!response.ok) {
@@ -15,8 +16,10 @@ async function getDataIP() {
     }
 
     const jsonip = await response.json();
-    const iplat = jsonip.lat;
-    const iplon = jsonip.lon;
+    //const iplat = jsonip.lat;
+    //const iplon = jsonip.lon;
+    const iplat = jsonip.location.lat;
+    const iplon = jsonip.location.lon;
 
     const url2 = "https://api.weather.gov/points/" + iplat + ","+ iplon;
     try {
